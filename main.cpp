@@ -104,7 +104,7 @@ void handleAffine(vector<string> keyWords) {
             cout << "WARNING: a is not coprime to 93" << endl;
         }
         string cipherText = affineTransform(keyWords[2], a, b);
-        cout << "\n" << keyWords[2] << " -> " << cipherText << "\n" << endl;
+        cout << "\n" << cipherText << "\n" << endl;
     } else if (keyWords[1] == "decrypt") {
         int a_inv = modInverse(stoi(keyWords[3]), 93);
         if (a_inv == -1) {
@@ -113,7 +113,7 @@ void handleAffine(vector<string> keyWords) {
         }
         int b = stoi(keyWords[4]);
         string plainText = affineTransform(keyWords[2], a_inv, (-a_inv * b) % 93);
-        cout << "\n" << keyWords[2] << " -> " << plainText << "\n" << endl;
+        cout << "\n" << plainText << "\n" << endl;
     } else {
         cout << "\ninvalid task\n" << endl;
     }
@@ -138,7 +138,7 @@ void handleVigenere(vector<string> keyWords) {
         for (int i = 0; i < keyWords[2].size(); i++) {
             output = output + numToChar((charToNum(keyWords[2][i]) + charToNum(key[i])) % 93);
         }
-        cout << "\n" << keyWords[2] << " -> " << output << "\n" << endl;
+        cout << "\n" << output << "\n" << endl;
     } else if (keyWords[1] == "decrypt") {
         string output = "";
         string key = keyWords[3];
@@ -149,7 +149,7 @@ void handleVigenere(vector<string> keyWords) {
             }
             output = output + numToChar(num);
         }
-        cout << "\n" << keyWords[2] << " -> " << output << "\n" << endl;
+        cout << "\n" << output << "\n" << endl;
     } else {
         cout << "\ninvalid task\n" << endl;
     }
@@ -167,7 +167,7 @@ vector<string> splitString(string input) {
 int main(int argc, char const *argv[]) {
     while (true) {
         string input;
-        cout << "cipher-app: ";
+        cout << "cipher-app>> ";
         getline(cin, input);
         vector<string> keyWords = splitString(input);
         if (!keyWords.empty()) {
