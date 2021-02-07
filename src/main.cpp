@@ -3,7 +3,7 @@
 #include "../include/vigenere_cipher.h"
 #include "../include/rsa_cipher.h"
 
-int main(int argc, char const *argv[]) {
+int main() {
     util::printHelp({"help"});
     while (true) {
         std::string input;
