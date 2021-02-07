@@ -1,9 +1,7 @@
-#include <iostream>
 #include <string>
 #include <vector>
 
-namespace vigenereCipher
-{
+namespace vigenereCipher {
     std::string encrypt(std::string plainText, std::string key);
 
     std::string decrypt(std::string cipherText, std::string key);

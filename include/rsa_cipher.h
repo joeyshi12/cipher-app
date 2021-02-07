@@ -1,8 +1,7 @@
 #include <string>
 #include <vector>
 
-namespace rsaCipher
-{
+namespace rsaCipher {
     std::string encrypt(std::string plainText, std::string key);
 
     std::string decrypt(std::string cipherText, std::string key);
