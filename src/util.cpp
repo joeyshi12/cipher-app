@@ -45,10 +45,11 @@ void util::printHelp(std::vector<std::string> keyWords) {
             message = "\ninvalid input\n";
         }
     } else {
-        message = "\nThe ascii characters with decimal values 33 to 126 are shifted into the range of 0 to 93\n"
-                  "We use an encryption method to map each character from some plain text to a new character\n"
-                  "Encryption methods: affine, vigenere, rsa (not implemented)\n"
-                  "Do 'help <method>' for more information\n";
+        message = "\nCipherApp is a command-line application that allows you to run simple encryptions.\n"
+                  "The ascii characters with decimal values 33 to 126 are shifted into the range of 0 to 93\n"
+                  "We use an encryption method to map each character from some plain text to a new character to encrypt the message\n"
+                  "Encryption methods: affine, vigenere, rsa (rsa not implemented yet)\n"
+                  "Enter 'help <method name>' for more information\n";
     }
     std::cout << message << std::endl;
 }

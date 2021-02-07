@@ -4,6 +4,7 @@
 #include "../include/rsa_cipher.h"
 
 int main(int argc, char const *argv[]) {
+    util::printHelp({"help"});
     while (true) {
         std::string input;
         std::cout << "cipher-app> ";
