@@ -1,22 +1,17 @@
 #include "../include/vigenere_cipher.h"
 #include "../include/util.h"
 
-std::string vigenereCipher::encrypt(std::string plainText, std::string key)
-{
-    for (int i = 0; i < plainText.size(); i++)
-    {
+std::string vigenereCipher::encrypt(std::string plainText, std::string key) {
+    for (int i = 0; i < plainText.size(); i++) {
         plainText[i] = util::numToChar((util::charToNum(plainText[i]) + util::charToNum(key[i])) % 93);
     }
     return plainText;
 }
 
-std::string vigenereCipher::decrypt(std::string cipherText, std::string key)
-{
-    for (int i = 0; i < cipherText.size(); i++)
-    {
+std::string vigenereCipher::decrypt(std::string cipherText, std::string key) {
+    for (int i = 0; i < cipherText.size(); i++) {
         int num = (util::charToNum(cipherText[i]) - util::charToNum(key[i])) % 93;
-        if (num < 0)
-        {
+        if (num < 0) {
             num += 93;
         }
         cipherText[i] = util::numToChar(num);
@@ -24,8 +19,7 @@ std::string vigenereCipher::decrypt(std::string cipherText, std::string key)
     return cipherText;
 }
 
-void vigenereCipher::handle(std::vector<std::string> keyWords) 
-{
+void vigenereCipher::handle(std::vector<std::string> keyWords) {
     if (keyWords.size() != 4) {
         std::cout << "\ninvalid number of arguments\n" << std::endl;
         return;

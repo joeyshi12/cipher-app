@@ -1,8 +1,7 @@
 #include "../include/affine_cipher.h"
 #include "../include/util.h"
 
-std::string affineCipher::encrypt(std::string plainText, std::pair<int, int> key)
-{
+std::string affineCipher::encrypt(std::string plainText, std::pair<int, int> key) {
     int a = key.first;
     int b = key.second;
     for (int i = 0; i < plainText.size(); i++) {
@@ -12,12 +11,10 @@ std::string affineCipher::encrypt(std::string plainText, std::pair<int, int> key
     return plainText;
 }
 
-std::string affineCipher::decrypt(std::string cipherText, std::pair<int, int> key)
-{
+std::string affineCipher::decrypt(std::string cipherText, std::pair<int, int> key) {
     int a_prime = util::modInverse(key.first, 93);
     int b_prime = (-a_prime * key.second) % 93;
-    if (b_prime < 0)
-    {
+    if (b_prime < 0) {
         b_prime += 93;
     }
     return encrypt(cipherText, std::make_pair(a_prime, b_prime));
