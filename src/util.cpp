@@ -47,23 +47,17 @@ void util::printHelp(std::vector<std::string> keyWords) {
     } else {
         message = "\nCipherApp is a command-line application that allows you to run simple encryptions.\n"
                   "The ascii characters with decimal values 33 to 126 are shifted into the range of 0 to 93\n"
-                  "We use an encryption method to map each character from some plain text to a new character to encrypt the message\n"
+                  "Choose an encryption method to map each character from some plain text to a new character to encrypt the message\n"
                   "Encryption methods: affine, vigenere, rsa (rsa not implemented yet)\n"
                   "Enter 'help <method name>' for more information\n";
     }
     std::cout << message << std::endl;
 }
 
-int util::gcd(int a, int b) {
-    if (a == 0)
-        return b;
-    return gcd(b % a, a);
-}
-
 int util::totient(unsigned int n) {
     int result = 1;
     for (unsigned int i = 2; i < n; i++) {
-        if (gcd(i, n) == 1) {
+        if (std::gcd(i, n) == 1) {
             result++;
         }
     }

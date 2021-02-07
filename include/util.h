@@ -3,6 +3,7 @@
 #include <vector>
 #include <sstream>
 #include <iterator>
+#include <numeric>
 
 namespace util {
   std::vector<std::string> splitString(std::string input);
@@ -12,8 +13,6 @@ namespace util {
   char numToChar(int n);
 
   void printHelp(std::vector<std::string> keyWords);
-
-  int gcd(int a, int b);
 
   int totient(unsigned int n);
 

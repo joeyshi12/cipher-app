@@ -35,12 +35,12 @@ void affineCipher::handle(std::vector<std::string> keyWords) {
     }
     std::pair<int, int> key = std::make_pair(a, b);
     if (keyWords[1] == "encrypt") {
-        if (util::gcd(a, 93) != 1) {
+        if (std::gcd(a, 93) != 1) {
             std::cout << "WARNING: a is not coprime to 93" << std::endl;
         }
         std::cout << "\n" << encrypt(keyWords[2], key) << "\n" << std::endl;
     } else if (keyWords[1] == "decrypt") {
-        if (util::gcd(a, 93) != 1) {
+        if (std::gcd(a, 93) != 1) {
             std::cout << "\nmod inverse does not exist\n" << std::endl;
             return;
         }
