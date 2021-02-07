@@ -1,2 +1,2 @@
-del build/*.o
-del *.exe
+rm build/*.o
+rm *.exe
