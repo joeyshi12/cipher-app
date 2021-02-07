@@ -1,2 +1,2 @@
-rm build/*.o
-rm *.exe
+Remove-Item build/*.o
+Remove-Item *.exe
