@@ -1,10 +1,7 @@
 {
     "files.associations": {
-        "iterator": "cpp",
-        "iostream": "cpp",
-        "string": "cpp",
-        "vector": "cpp",
-        "ostream": "cpp",
-        "xstring": "cpp"
+        "string_view": "cpp",
+        "*.tcc": "cpp",
+        "numeric": "cpp"
     }
 }
