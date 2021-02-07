@@ -4,16 +4,14 @@
 #include <sstream>
 #include <iterator>
 
-using namespace std;
-
 namespace util {
-  vector<string> splitString(string input);
+  std::vector<std::string> splitString(std::string input);
 
   int charToNum(char c);
 
   char numToChar(int n);
 
-  void printHelp(vector<string> keyWords);
+  void printHelp(std::vector<std::string> keyWords);
 
   int gcd(int a, int b);
 

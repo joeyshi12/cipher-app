@@ -1,7 +1,7 @@
 #include "../include/affine_cipher.h"
 #include "../include/util.h"
 
-string affineCipher::encrypt(string plainText, pair<int, int> key)
+std::string affineCipher::encrypt(std::string plainText, std::pair<int, int> key)
 {
     int a = key.first;
     int b = key.second;
@@ -12,7 +12,7 @@ string affineCipher::encrypt(string plainText, pair<int, int> key)
     return plainText;
 }
 
-string affineCipher::decrypt(string cipherText, pair<int, int> key)
+std::string affineCipher::decrypt(std::string cipherText, std::pair<int, int> key)
 {
     int a_prime = util::modInverse(key.first, 93);
     int b_prime = (-a_prime * key.second) % 93;
@@ -20,35 +20,35 @@ string affineCipher::decrypt(string cipherText, pair<int, int> key)
     {
         b_prime += 93;
     }
-    return encrypt(cipherText, make_pair(a_prime, b_prime));
+    return encrypt(cipherText, std::make_pair(a_prime, b_prime));
 }
 
-void affineCipher::handle(vector<string> keyWords) {
+void affineCipher::handle(std::vector<std::string> keyWords) {
     if (keyWords.size() != 5) {
-        cout << "\ninvalid number of arguments\n" << endl;
+        std::cout << "\ninvalid number of arguments\n" << std::endl;
         return;
     }
     int a; int b;
     try {
         a = stoi(keyWords[3]);
         b = stoi(keyWords[4]);
-    } catch (const exception& e) {
-        cout << "\ninvalid key\n" << endl;
+    } catch (const std::exception& e) {
+        std::cout << "\ninvalid key\n" << std::endl;
         return;
     }
-    pair<int, int> key = make_pair(a, b);
+    std::pair<int, int> key = std::make_pair(a, b);
     if (keyWords[1] == "encrypt") {
         if (util::gcd(a, 93) != 1) {
-            cout << "WARNING: a is not coprime to 93" << endl;
+            std::cout << "WARNING: a is not coprime to 93" << std::endl;
         }
-        cout << "\n" << encrypt(keyWords[2], key) << "\n" << endl;
+        std::cout << "\n" << encrypt(keyWords[2], key) << "\n" << std::endl;
     } else if (keyWords[1] == "decrypt") {
         if (util::gcd(a, 93) != 1) {
-            cout << "\nmod inverse does not exist\n" << endl;
+            std::cout << "\nmod inverse does not exist\n" << std::endl;
             return;
         }
-        cout << decrypt(keyWords[2], key) << endl;
+        std::cout << decrypt(keyWords[2], key) << std::endl;
     } else {
-        cout << "\ninvalid task\n" << endl;
+        std::cout << "\ninvalid task\n" << std::endl;
     }
 }

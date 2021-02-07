@@ -1,8 +1,6 @@
 #include <string>
 #include <vector>
 
-using namespace std;
-
 namespace affineCipher 
 {
     std::string encrypt(std::string plainText, std::pair<int, int> key);

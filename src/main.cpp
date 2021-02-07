@@ -5,10 +5,10 @@
 
 int main(int argc, char const *argv[]) {
     while (true) {
-        string input;
-        cout << "cipher-app> ";
-        getline(cin, input);
-        vector<string> keyWords = util::splitString(input);
+        std::string input;
+        std::cout << "cipher-app> ";
+        std::getline(std::cin, input);
+        std::vector<std::string> keyWords = util::splitString(input);
         if (!keyWords.empty()) {
             if (keyWords[0] == "help") {
                 util::printHelp(keyWords);

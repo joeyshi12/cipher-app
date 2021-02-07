@@ -1,8 +1,6 @@
 #include "../include/vigenere_cipher.h"
 #include "../include/util.h"
 
-using namespace std;
-
 std::string vigenereCipher::encrypt(std::string plainText, std::string key)
 {
     for (int i = 0; i < plainText.size(); i++)
@@ -26,22 +24,22 @@ std::string vigenereCipher::decrypt(std::string cipherText, std::string key)
     return cipherText;
 }
 
-void vigenereCipher::handle(vector<string> keyWords) 
+void vigenereCipher::handle(std::vector<std::string> keyWords) 
 {
     if (keyWords.size() != 4) {
-        cout << "\ninvalid number of arguments\n" << endl;
+        std::cout << "\ninvalid number of arguments\n" << std::endl;
         return;
     }
     if (keyWords[2].size() != keyWords[3].size()) {
-        cout << "\ninvalid key length\n" << endl;
+        std::cout << "\ninvalid key length\n" << std::endl;
         return;
     }
-    string key = keyWords[3];
+    std::string key = keyWords[3];
     if (keyWords[1] == "encrypt") {
-        cout << "\n" << encrypt(keyWords[2], key) << "\n" << endl;
+        std::cout << "\n" << encrypt(keyWords[2], key) << "\n" << std::endl;
     } else if (keyWords[1] == "decrypt") {
-        cout << "\n" << decrypt(keyWords[2], key) << "\n" << endl;
+        std::cout << "\n" << decrypt(keyWords[2], key) << "\n" << std::endl;
     } else {
-        cout << "\ninvalid task\n" << endl;
+        std::cout << "\ninvalid task\n" << std::endl;
     }
 }

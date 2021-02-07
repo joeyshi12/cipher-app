@@ -1,7 +1,6 @@
 #include "../include/rsa_cipher.h"
+#include "../include/util.h"
 
-using namespace std;
-
-void rsaCipher::handle(vector<string> keyWords) {
-    cout << "\nRSA not implemented yet\n" << endl;
+void rsaCipher::handle(std::vector<std::string> keyWords) {
+    std::cout << "\nRSA not implemented yet\n" << std::endl;
 }

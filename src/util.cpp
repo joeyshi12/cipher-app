@@ -1,17 +1,17 @@
 #include "../include/util.h"
 
-vector<string> util::splitString(string input) {
+std::vector<std::string> util::splitString(std::string input) {
     if (input.size() == 0) {
         return {};
     }
-    istringstream iss(input);
-    vector<string> results{istream_iterator<string>{iss}, istream_iterator<string>{}};
+    std::istringstream iss(input);
+    std::vector<std::string> results{std::istream_iterator<std::string>{iss}, std::istream_iterator<std::string>{}};
     return results;
 }
 
 int util::charToNum(char c) {
     if (c < 33 || c > 176) {
-        cout << "INVALID LETTER: " << c << endl;
+        std::cout << "INVALID LETTER: " << c << std::endl;
         return -1;
     }
     return (int) c - 33;
@@ -19,14 +19,14 @@ int util::charToNum(char c) {
 
 char util::numToChar(int n) {
     if (n < 0 || n >= 93) {
-        cout << "INVALID NUMBER: " << n << endl;
+        std::cout << "INVALID NUMBER: " << n << std::endl;
         return (char) ' ';
     }
     return (char) (n + 33);
 }
 
-void util::printHelp(vector<string> keyWords) {
-    string message;
+void util::printHelp(std::vector<std::string> keyWords) {
+    std::string message;
     if (keyWords.size() == 2) {
         if (keyWords[1] == "affine") {
             message = "\naffine - a type of encryption with a key (a, b)\n"
@@ -50,7 +50,7 @@ void util::printHelp(vector<string> keyWords) {
                   "Encryption methods: affine, vigenere, rsa (not implemented)\n"
                   "Do 'help <method>' for more information\n";
     }
-    cout << message << endl;
+    std::cout << message << std::endl;
 }
 
 int util::gcd(int a, int b) {
