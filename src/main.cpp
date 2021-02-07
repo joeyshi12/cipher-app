@@ -7,7 +7,7 @@ int main() {
     util::printHelp({"help"});
     while (true) {
         std::string input;
-        std::cout << "cipher-app> ";
+        std::cout << "CipherApp> ";
         std::getline(std::cin, input);
         std::vector<std::string> keyWords = util::splitString(input);
         if (!keyWords.empty()) {
