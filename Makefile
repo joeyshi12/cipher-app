@@ -10,11 +10,11 @@ dirs:
 
 cipher_app: util.o affine_cipher.o vigenere_cipher.o rsa_cipher.o $(SRC_DIR)/main.cpp
 	$(CXX) $(BUILD_DIR)/util.o\
-		   $(BUILD_DIR)/affine_cipher.o\
-		   $(BUILD_DIR)/vigenere_cipher.o\
-		   $(BUILD_DIR)/rsa_cipher.o\
-		   $(SRC_DIR)/main.cpp\
-		   -o $(BUILD_DIR)/$@
+		$(BUILD_DIR)/affine_cipher.o\
+		$(BUILD_DIR)/vigenere_cipher.o\
+		$(BUILD_DIR)/rsa_cipher.o\
+		$(SRC_DIR)/main.cpp\
+		-o $(BUILD_DIR)/$@
 
 rsa_cipher.o: $(SRC_DIR)/rsa_cipher.cpp
 	$(CXX) -c $(SRC_DIR)/rsa_cipher.cpp -o $(BUILD_DIR)/$@
